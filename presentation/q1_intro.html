@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-4xl font-bold text-blue-900 mb-8">
+            <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+            Question 1: Deployment Strategy Evolution
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        Question Focus
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        How did your deployment strategy and system architecture evolve from initial design to final implementation? What cloud-specific constraints or opportunities influenced your decisions?
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 rounded-lg p-6 border border-blue-200">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-3">
+                        <i class="fas fa-search text-blue-600 mr-2"></i>
+                        Evidence to Consider
+                    </h3>
+                    <ul class="text-blue-700 space-y-2 text-sm">
+                        <li>• Architecture diagrams showing evolution over time</li>
+                        <li>• Early vs final versions of topology.yml</li>
+                        <li>• Comments about changes due to cloud limitations</li>
+                        <li>• Reflections on container image choices</li>
+                        <li>• Network layout and service placement decisions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-route text-blue-300 mr-2"></i>
+                        Evolution Journey
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center text-blue-800 font-bold mr-3">1</div>
+                            <span>Initial Concept & Requirements</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center text-blue-800 font-bold mr-3">2</div>
+                            <span>Architecture Design & Planning</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center text-blue-800 font-bold mr-3">3</div>
+                            <span>Implementation & Testing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-blue-300 rounded-full flex items-center justify-center text-blue-800 font-bold mr-3">4</div>
+                            <span>Refinement & Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-cloud text-blue-500 mr-2"></i>
+                        Key Constraints Considered
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="bg-gray-50 p-3 rounded">
+                            <i class="fas fa-memory text-orange-500 mr-1"></i>
+                            Resource Limits
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <i class="fas fa-network-wired text-green-500 mr-1"></i>
+                            Network Topology
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <i class="fas fa-shield-alt text-red-500 mr-1"></i>
+                            Security Isolation
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded">
+                            <i class="fas fa-clock text-purple-500 mr-1"></i>
+                            Performance
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-bug text-red-600 mr-3"></i>
+            Debugging and Troubleshooting
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-exclamation-triangle text-red-500 mr-2"></i>
+                        Common Issues Encountered
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Container Startup Failures</h4>
+                            <p class="text-red-700 text-sm">Network interface configuration delays, service dependencies</p>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Network Connectivity Issues</h4>
+                            <p class="text-red-700 text-sm">IP routing conflicts, iptables rule ordering problems</p>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Database Initialization</h4>
+                            <p class="text-red-700 text-sm">MySQL startup timing, permission configuration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-orange-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-tools text-orange-500 mr-2"></i>
+                        Debugging Tools Used
+                    </h3>
+                    <div class="code-block">
+# Container inspection
+docker logs clab-corporate-data-breach-ctf-webserver
+docker exec -it container_name /bin/sh
+
+# Network debugging
+ip route show
+iptables -L -n -v
+netstat -tulpn
+
+# Service testing
+curl -v http://localhost:8080/debug
+mysql -h 10.1.2.20 -u webapp -p
+
+# Containerlab diagnostics
+sudo containerlab inspect -t topology.yml
+sudo containerlab graph -t topology.yml</div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-wrench text-green-500 mr-2"></i>
+                        Problem Resolution Process
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
+                            <span class="text-sm">Identify symptoms and error messages</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
+                            <span class="text-sm">Isolate the problematic component</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
+                            <span class="text-sm">Check logs and configuration files</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">4</div>
+                            <span class="text-sm">Test fixes incrementally</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold mr-3">5</div>
+                            <span class="text-sm">Document solution for future reference</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-chart-pie text-blue-300 mr-2"></i>
+                        Issue Resolution Time
+                    </h3>
+                    <div style="height: 180px;">
+                        <canvas id="debugChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-purple-900 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-lightbulb text-purple-300 mr-2"></i>
+                Debugging Lessons: Systematic troubleshooting and comprehensive logging are essential for complex systems
+            </h3>
+            <div class="grid grid-cols-4 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-purple-300 font-bold">Log Analysis</div>
+                    <div>Container and service logs</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-purple-300 font-bold">Network Tools</div>
+                    <div>Connectivity diagnostics</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-purple-300 font-bold">Incremental Testing</div>
+                    <div>Component isolation</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-purple-300 font-bold">Documentation</div>
+                    <div>Solution recording</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('debugChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Network Issues', 'Container Problems', 'Service Config', 'Database Setup'],
+                datasets: [{
+                    data: [40, 25, 20, 15],
+                    backgroundColor: ['#ef4444', '#f97316', '#eab308', '#84cc16'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { 
+                        labels: { color: 'white', font: { size: 11 } },
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

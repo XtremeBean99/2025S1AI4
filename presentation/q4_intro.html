@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-4xl font-bold text-blue-900 mb-8">
+            <i class="fas fa-question-circle text-blue-600 mr-3"></i>
+            Question 4: Technology Integration & Testing
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb text-indigo-500 mr-2"></i>
+                        Question Focus
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        What technologies, strategies, and tools did you use to integrate and manage your multi-container or distributed system? How did you test and verify system behaviour?
+                    </p>
+                </div>
+                
+                <div class="bg-indigo-50 rounded-lg p-6 border border-indigo-200">
+                    <h3 class="text-lg font-semibold text-indigo-800 mb-3">
+                        <i class="fas fa-search text-indigo-600 mr-2"></i>
+                        Evidence Categories
+                    </h3>
+                    <ul class="text-indigo-700 space-y-2 text-sm">
+                        <li>• Containerlab and Docker integration tools</li>
+                        <li>• Scripts and automation for testing</li>
+                        <li>• Debugging and troubleshooting processes</li>
+                        <li>• Component interaction documentation</li>
+                        <li>• Service dependency management</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-tools text-indigo-300 mr-2"></i>
+                        Technology Stack
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-indigo-300 rounded-full flex items-center justify-center text-indigo-800 font-bold mr-3">1</div>
+                            <span>Containerlab for Network Orchestration</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-indigo-300 rounded-full flex items-center justify-center text-indigo-800 font-bold mr-3">2</div>
+                            <span>Docker for Container Management</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-indigo-300 rounded-full flex items-center justify-center text-indigo-800 font-bold mr-3">3</div>
+                            <span>Bash Scripts for Automation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 bg-indigo-300 rounded-full flex items-center justify-center text-indigo-800 font-bold mr-3">4</div>
+                            <span>iptables for Network Security</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-cogs text-purple-500 mr-2"></i>
+                        Integration Strategies
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-sm">
+                        <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                            <i class="fas fa-network-wired text-purple-500 mr-1"></i>
+                            <span class="font-medium">Network Namespaces</span>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                            <i class="fas fa-file-code text-purple-500 mr-1"></i>
+                            <span class="font-medium">YAML Configuration</span>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                            <i class="fas fa-play text-purple-500 mr-1"></i>
+                            <span class="font-medium">Startup Scripts</span>
+                        </div>
+                        <div class="bg-purple-50 p-3 rounded border border-purple-200">
+                            <i class="fas fa-link text-purple-500 mr-1"></i>
+                            <span class="font-medium">Container Linking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

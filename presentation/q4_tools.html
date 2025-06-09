@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-cogs text-indigo-600 mr-3"></i>
+            Containerlab and Docker Integration
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-layer-group text-indigo-500 mr-2"></i>
+                        Containerlab Orchestration
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Containerlab provides network topology management, enabling realistic multi-container environments with complex networking scenarios.
+                    </p>
+                    <div class="code-block">
+name: corporate-data-breach-ctf
+topology:
+  nodes:
+    router:
+      kind: linux
+      image: alpine:latest
+    webserver:
+      kind: linux
+      image: nginx:alpine
+    database:
+      kind: linux
+      image: mysql:8.0
+  links:
+    - endpoints: ["router:eth1", "webserver:eth0"]
+    - endpoints: ["router:eth2", "database:eth0"]</div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-docker text-blue-500 mr-2"></i>
+                        Docker Container Management
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-blue-50 rounded border border-blue-200">
+                            <h4 class="font-semibold text-blue-800 mb-1">Image Selection</h4>
+                            <p class="text-blue-700 text-sm">Alpine Linux for minimal footprint, official images for reliability</p>
+                        </div>
+                        <div class="p-3 bg-blue-50 rounded border border-blue-200">
+                            <h4 class="font-semibold text-blue-800 mb-1">Volume Mounting</h4>
+                            <p class="text-blue-700 text-sm">Configuration files and startup scripts mounted as read-only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-terminal text-gray-300 mr-2"></i>
+                        Integration Commands
+                    </h3>
+                    <div class="code-block">
+# Deploy topology
+sudo containerlab deploy -t topology.yml
+
+# Inspect running containers
+sudo containerlab inspect -t topology.yml
+
+# Execute commands in containers
+docker exec -it clab-corporate-data-breach-ctf-webserver /bin/sh
+
+# View container logs
+docker logs clab-corporate-data-breach-ctf-database
+
+# Destroy topology
+sudo containerlab destroy -t topology.yml --cleanup</div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-network-wired text-purple-500 mr-2"></i>
+                        Network Integration
+                    </h3>
+                    <div style="height: 180px;">
+                        <canvas id="networkChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-indigo-900 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-lightbulb text-indigo-300 mr-2"></i>
+                Integration Benefits: Containerlab + Docker provides realistic network simulation with container isolation
+            </h3>
+            <div class="grid grid-cols-4 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-indigo-300 font-bold">Scalability</div>
+                    <div>Easy topology expansion</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-indigo-300 font-bold">Isolation</div>
+                    <div>Container security boundaries</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-indigo-300 font-bold">Automation</div>
+                    <div>Scripted deployment</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-indigo-300 font-bold">Reproducibility</div>
+                    <div>Consistent environments</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('networkChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Network Complexity', 'Container Isolation', 'Resource Efficiency', 'Deployment Speed'],
+                datasets: [{
+                    label: 'Integration Score',
+                    data: [85, 90, 80, 95],
+                    backgroundColor: ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: '#374151' }
+                    },
+                    x: {
+                        ticks: { color: '#374151', font: { size: 10 } }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

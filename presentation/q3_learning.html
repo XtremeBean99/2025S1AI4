@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-trophy text-green-600 mr-3"></i>
+            Learning Outcomes and Skills
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-tools text-green-500 mr-2"></i>
+                        Technical Skills Developed
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-green-50 rounded border border-green-200">
+                            <h4 class="font-semibold text-green-800 mb-1">Network Reconnaissance</h4>
+                            <p class="text-green-700 text-sm">Port scanning, service enumeration, network mapping techniques</p>
+                        </div>
+                        <div class="p-3 bg-green-50 rounded border border-green-200">
+                            <h4 class="font-semibold text-green-800 mb-1">Web Application Testing</h4>
+                            <p class="text-green-700 text-sm">Directory enumeration, endpoint discovery, vulnerability identification</p>
+                        </div>
+                        <div class="p-3 bg-green-50 rounded border border-green-200">
+                            <h4 class="font-semibold text-green-800 mb-1">Database Interaction</h4>
+                            <p class="text-green-700 text-sm">SQL queries, database enumeration, data extraction techniques</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-brain text-blue-500 mr-2"></i>
+                        Analytical Skills
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span class="text-sm">Critical thinking and problem-solving</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span class="text-sm">Attack chain analysis and planning</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span class="text-sm">Risk assessment and impact evaluation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span class="text-sm">Documentation and reporting skills</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-chart-line text-purple-300 mr-2"></i>
+                        Skill Progression Metrics
+                    </h3>
+                    <div style="height: 250px;">
+                        <canvas id="skillChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-orange-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-shield-alt text-orange-500 mr-2"></i>
+                        Security Awareness
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                            <h4 class="font-semibold text-orange-800 mb-1">Defensive Mindset</h4>
+                            <p class="text-orange-700 text-sm">Understanding attacker methodologies to improve defenses</p>
+                        </div>
+                        <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                            <h4 class="font-semibold text-orange-800 mb-1">Best Practices</h4>
+                            <p class="text-orange-700 text-sm">Secure configuration, network segmentation, access controls</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-gray-800 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-graduation-cap text-yellow-400 mr-2"></i>
+                Career Preparation: Students gain practical experience applicable to cybersecurity roles
+            </h3>
+            <div class="grid grid-cols-4 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-blue-400 font-bold">Penetration Tester</div>
+                    <div>Attack simulation skills</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-green-400 font-bold">Security Analyst</div>
+                    <div>Vulnerability assessment</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-purple-400 font-bold">Network Engineer</div>
+                    <div>Segmentation design</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-orange-400 font-bold">Security Architect</div>
+                    <div>Defense planning</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('skillChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Beginner', 'Basic', 'Intermediate', 'Advanced', 'Expert'],
+                datasets: [{
+                    label: 'Technical Skills',
+                    data: [20, 40, 70, 85, 95],
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Security Awareness',
+                    data: [15, 35, 65, 80, 90],
+                    borderColor: '#06b6d4',
+                    backgroundColor: 'rgba(6, 182, 212, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255,255,255,0.3)' }
+                    },
+                    x: {
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255,255,255,0.3)' }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: 'white' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

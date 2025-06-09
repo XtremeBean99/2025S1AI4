@@ -1,0 +1,70 @@
+name: corporate-data-breach-ctf
+
+topology:
+  nodes:
+    # Router/Firewall node
+    router:
+      kind: linux
+      image: alpine:latest
+      cmd: /bin/sh
+      binds:
+        - ./configs/router-startup.sh:/startup.sh:ro
+      exec:
+        - chmod +x /startup.sh
+        - /startup.sh
+      ports:
+        - "8080:80"  # Expose web service to host
+
+    # Web server in DMZ
+    webserver:
+      kind: linux
+      image: nginx:alpine
+      binds:
+        - ./containers/web/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./containers/web/default.conf:/etc/nginx/conf.d/default.conf:ro
+        - ./containers/web/www:/var/www/html:ro
+        - ./containers/web/startup.sh:/startup.sh:ro
+      exec:
+        - chmod +x /startup.sh
+        - /startup.sh
+      env:
+        DB_HOST: "10.1.2.20"
+        DB_USER: "webapp"
+        DB_PASS: "SecureP@ss123"
+        DB_NAME: "corporate_db"
+        DEBUG_MODE: "true"
+
+    # Database server in internal network
+    database:
+      kind: linux
+      image: mysql:8.0
+      binds:
+        - ./containers/database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+        - ./containers/database/my.cnf:/etc/mysql/conf.d/custom.cnf:ro
+      env:
+        MYSQL_ROOT_PASSWORD: "rootpass123"
+        MYSQL_DATABASE: "corporate_db"
+        MYSQL_USER: "webapp"
+        MYSQL_PASSWORD: "SecureP@ss123"
+
+    # Admin panel in internal network
+    admin:
+      kind: linux
+      image: nginx:alpine
+      binds:
+        - ./containers/admin/nginx.conf:/etc/nginx/nginx.conf:ro
+        - ./containers/admin/www:/var/www/html:ro
+
+  links:
+    # DMZ network connections
+    - endpoints: ["router:eth1", "webserver:eth0"]
+    
+    # Internal network connections  
+    - endpoints: ["router:eth2", "database:eth0"]
+    - endpoints: ["router:eth3", "admin:eth0"]
+
+# Network configuration
+mgmt:
+  network: ctf-mgmt
+  ipv4-subnet: 172.20.20.0/24
+

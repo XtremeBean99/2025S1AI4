@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="w-1/2 pr-8">
+            <h1 class="text-4xl font-bold text-blue-900 mb-6">
+                <i class="fas fa-flag text-blue-600 mr-3"></i>
+                Challenge Overview
+            </h1>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-bullseye text-blue-500 mr-2"></i>
+                        Challenge Concept
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        "Corporate Data Breach" simulates a realistic attack scenario where multiple security misconfigurations combine to create a critical vulnerability chain, demonstrating information disclosure through debug endpoints and network segmentation failures.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                        <i class="fas fa-graduation-cap text-green-500 mr-2"></i>
+                        Learning Objectives
+                    </h3>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• Information disclosure vulnerability exploitation</li>
+                        <li>• Network reconnaissance and lateral movement</li>
+                        <li>• Database security and access control concepts</li>
+                        <li>• Container security in cloud environments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-1/2 pl-8">
+            <div class="bg-blue-900 rounded-lg p-6 text-white mb-6">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-chart-bar mr-2"></i>
+                    Challenge Metrics
+                </h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-300">500</div>
+                        <div class="text-sm">Points</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-300">30-45</div>
+                        <div class="text-sm">Minutes</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-300">4</div>
+                        <div class="text-sm">Containers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-blue-300">2</div>
+                        <div class="text-sm">Networks</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg p-6 shadow-lg">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                    <i class="fas fa-sitemap text-purple-500 mr-2"></i>
+                    Network Architecture
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-red-500 rounded mr-3"></div>
+                        <span class="text-gray-700">DMZ Network (10.1.1.0/24)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-blue-500 rounded mr-3"></div>
+                        <span class="text-gray-700">Internal Network (10.1.2.0/24)</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="w-4 h-4 bg-green-500 rounded mr-3"></div>
+                        <span class="text-gray-700">Router/Firewall Gateway</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-mountain text-orange-600 mr-3"></i>
+            Challenges and Problem Solving
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-orange-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-exclamation-circle text-orange-500 mr-2"></i>
+                        Major Challenges Encountered
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                            <h4 class="font-semibold text-orange-800 mb-1">Network Complexity</h4>
+                            <p class="text-orange-700 text-sm">Configuring realistic multi-segment network topology with proper routing and firewall rules</p>
+                        </div>
+                        <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                            <h4 class="font-semibold text-orange-800 mb-1">Container Dependencies</h4>
+                            <p class="text-orange-700 text-sm">Managing startup order and service dependencies across multiple containers</p>
+                        </div>
+                        <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                            <h4 class="font-semibold text-orange-800 mb-1">Educational Balance</h4>
+                            <p class="text-orange-700 text-sm">Creating realistic vulnerabilities while maintaining appropriate difficulty level</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-lightbulb text-green-500 mr-2"></i>
+                        Problem-Solving Strategies
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <i class="fas fa-search text-green-500 mr-2"></i>
+                            <span class="text-sm">Research best practices and existing solutions</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-cogs text-green-500 mr-2"></i>
+                            <span class="text-sm">Iterative testing and incremental improvements</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-green-500 mr-2"></i>
+                            <span class="text-sm">Consulting documentation and community resources</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-file-alt text-green-500 mr-2"></i>
+                            <span class="text-sm">Detailed logging and systematic debugging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-wrench text-red-500 mr-2"></i>
+                        Specific Solutions Implemented
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Network Issues</h4>
+                            <p class="text-red-700 text-sm">Added startup scripts with proper IP configuration and routing setup</p>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Service Dependencies</h4>
+                            <p class="text-red-700 text-sm">Implemented wait conditions and health checks in deployment scripts</p>
+                        </div>
+                        <div class="p-3 bg-red-50 rounded border border-red-200">
+                            <h4 class="font-semibold text-red-800 mb-1">Educational Design</h4>
+                            <p class="text-red-700 text-sm">Created comprehensive tutorial and multiple difficulty hints</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-chart-bar text-purple-300 mr-2"></i>
+                        Challenge Resolution Impact
+                    </h3>
+                    <div style="height: 200px;">
+                        <canvas id="challengeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-blue-900 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-star text-yellow-400 mr-2"></i>
+                Key Learning: Systematic problem-solving and persistence are essential for complex technical projects
+            </h3>
+            <div class="grid grid-cols-4 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-yellow-400 font-bold">Analysis</div>
+                    <div>Problem identification</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-green-400 font-bold">Research</div>
+                    <div>Solution exploration</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-blue-400 font-bold">Implementation</div>
+                    <div>Iterative testing</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-purple-400 font-bold">Validation</div>
+                    <div>Solution verification</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('challengeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Network Config', 'Container Deps', 'Educational Design', 'Testing Issues'],
+                datasets: [{
+                    label: 'Time to Resolution (hours)',
+                    data: [6, 4, 3, 2],
+                    backgroundColor: ['#ef4444', '#f97316', '#eab308', '#84cc16'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 8,
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255,255,255,0.3)' }
+                    },
+                    x: {
+                        ticks: { color: 'white', font: { size: 10 } },
+                        grid: { color: 'rgba(255,255,255,0.3)' }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: 'white' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

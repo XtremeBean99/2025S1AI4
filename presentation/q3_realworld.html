@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-globe text-red-600 mr-3"></i>
+            Real-World Vulnerability Examples
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-red-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-building text-red-500 mr-2"></i>
+                        Capital One Data Breach (2019)
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        <strong>CVE-2019-11634:</strong> SSRF vulnerability allowed access to AWS metadata service, exposing temporary credentials and leading to massive data breach affecting 100+ million customers.
+                    </p>
+                    <div class="p-3 bg-red-50 rounded border border-red-200">
+                        <h4 class="font-semibold text-red-800 mb-1">Parallel to Our Challenge:</h4>
+                        <p class="text-red-700 text-sm">Debug endpoint exposure → credential theft → internal system access</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-orange-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-chart-line text-orange-500 mr-2"></i>
+                        Equifax Breach (2017)
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        <strong>CVE-2017-5638:</strong> Apache Struts vulnerability combined with network segmentation failures allowed attackers to access sensitive databases containing 147 million records.
+                    </p>
+                    <div class="p-3 bg-orange-50 rounded border border-orange-200">
+                        <h4 class="font-semibold text-orange-800 mb-1">Parallel to Our Challenge:</h4>
+                        <p class="text-orange-700 text-sm">Network segmentation bypass → database access → data exfiltration</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-docker text-blue-500 mr-2"></i>
+                        Docker Hub Secret Exposure (2020)
+                    </h3>
+                    <p class="text-gray-700 mb-3">
+                        Researchers found thousands of container images with embedded secrets, API keys, and database credentials exposed through environment variables and configuration files.
+                    </p>
+                    <div class="p-3 bg-blue-50 rounded border border-blue-200">
+                        <h4 class="font-semibold text-blue-800 mb-1">Parallel to Our Challenge:</h4>
+                        <p class="text-blue-700 text-sm">Environment variable exposure → credential harvesting → system compromise</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-chart-pie text-gray-300 mr-2"></i>
+                        Vulnerability Distribution
+                    </h3>
+                    <div style="height: 200px;">
+                        <canvas id="vulnChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-blue-900 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-link text-blue-300 mr-2"></i>
+                Academic and Industry References
+            </h3>
+            <div class="grid grid-cols-3 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-blue-300 font-bold">OWASP Top 10</div>
+                    <div>A03:2021 - Injection</div>
+                    <div>A01:2021 - Access Control</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-blue-300 font-bold">NIST Framework</div>
+                    <div>Network Segmentation</div>
+                    <div>Access Control Principles</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-blue-300 font-bold">CIS Controls</div>
+                    <div>Control 12: Network Security</div>
+                    <div>Control 14: Malware Defenses</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('vulnChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Information Disclosure', 'Network Segmentation', 'Access Control', 'Configuration Errors'],
+                datasets: [{
+                    data: [35, 25, 25, 15],
+                    backgroundColor: ['#ef4444', '#f97316', '#eab308', '#84cc16'],
+                    borderWidth: 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { 
+                        labels: { color: 'white', font: { size: 11 } },
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+

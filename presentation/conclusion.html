@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.2) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="geometric-bg"></div>
+        
+        <div class="text-center z-10 max-w-4xl">
+            <div class="mb-8">
+                <i class="fas fa-flag-checkered text-white text-6xl mb-4"></i>
+            </div>
+            
+            <h1 class="text-5xl font-bold text-white mb-6">
+                Conclusion & Future Work
+            </h1>
+            
+            <div class="grid grid-cols-3 gap-8 mb-8">
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6">
+                    <i class="fas fa-trophy text-yellow-300 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Achievements</h3>
+                    <ul class="text-blue-100 text-sm space-y-1">
+                        <li>• Complete CTF environment</li>
+                        <li>• Realistic vulnerability chain</li>
+                        <li>• Educational documentation</li>
+                        <li>• Automated deployment</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6">
+                    <i class="fas fa-graduation-cap text-green-300 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Learning Outcomes</h3>
+                    <ul class="text-blue-100 text-sm space-y-1">
+                        <li>• Container security concepts</li>
+                        <li>• Network segmentation</li>
+                        <li>• Information disclosure</li>
+                        <li>• Educational design</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6">
+                    <i class="fas fa-rocket text-purple-300 text-3xl mb-3"></i>
+                    <h3 class="text-xl font-semibold text-white mb-2">Future Enhancements</h3>
+                    <ul class="text-blue-100 text-sm space-y-1">
+                        <li>• Additional attack vectors</li>
+                        <li>• Advanced monitoring</li>
+                        <li>• Multi-stage challenges</li>
+                        <li>• Cloud platform integration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-6 mb-6">
+                <h3 class="text-2xl font-semibold text-white mb-4">Project Impact</h3>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                    This CTF challenge successfully demonstrates realistic cloud security vulnerabilities while providing 
+                    valuable educational experiences. The combination of network segmentation failures, information 
+                    disclosure vulnerabilities, and container security concepts creates an engaging learning environment 
+                    that prepares students for real-world cybersecurity challenges.
+                </p>
+            </div>
+            
+            <div class="text-blue-100 text-lg">
+                <p><strong>Thank you for your attention!</strong></p>
+                <p class="text-sm mt-2">Questions and feedback welcome</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

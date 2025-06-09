@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 60px;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <h1 class="text-3xl font-bold text-blue-900 mb-6">
+            <i class="fas fa-brain text-green-600 mr-3"></i>
+            Core Security Concepts
+        </h1>
+        
+        <div class="flex-1 grid grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-eye text-green-500 mr-2"></i>
+                        Information Disclosure Vulnerabilities
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Students discover how debug endpoints and environment variables can expose sensitive configuration data, leading to credential theft and system compromise.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Debug endpoint reconnaissance</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Environment variable exposure</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Configuration data leakage</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-network-wired text-blue-500 mr-2"></i>
+                        Network Segmentation Concepts
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        The challenge demonstrates proper DMZ architecture principles and common misconfigurations that allow lateral movement between network segments.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>DMZ vs Internal network design</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Firewall rule misconfigurations</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-blue-500 mr-2"></i>
+                            <span>Network access control failures</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-white rounded-lg p-6 shadow-lg border-l-4 border-purple-500">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                        <i class="fas fa-database text-purple-500 mr-2"></i>
+                        Database Security Principles
+                    </h3>
+                    <p class="text-gray-700 mb-4">
+                        Students learn about database access controls, credential management, and the importance of least-privilege principles in database security.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Database authentication mechanisms</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Network-level database protection</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-check-circle text-purple-500 mr-2"></i>
+                            <span>Data enumeration techniques</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg p-6 text-white">
+                    <h3 class="text-xl font-semibold mb-4">
+                        <i class="fas fa-graduation-cap text-green-300 mr-2"></i>
+                        Learning Progression
+                    </h3>
+                    <div style="height: 200px;">
+                        <canvas id="learningChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-6 bg-gray-800 rounded-lg p-4 text-white">
+            <h3 class="text-lg font-semibold mb-2">
+                <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
+                Key Educational Insight: Students experience the complete attack chain from reconnaissance to data exfiltration
+            </h3>
+            <div class="grid grid-cols-4 gap-4 text-sm">
+                <div class="text-center">
+                    <div class="text-blue-400 font-bold">Reconnaissance</div>
+                    <div>Information gathering</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-yellow-400 font-bold">Exploitation</div>
+                    <div>Vulnerability abuse</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-orange-400 font-bold">Lateral Movement</div>
+                    <div>Network traversal</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-red-400 font-bold">Data Extraction</div>
+                    <div>Goal achievement</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('learningChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Technical Skills', 'Security Awareness', 'Problem Solving', 'Tool Usage', 'Methodology'],
+                datasets: [{
+                    label: 'Skill Development',
+                    data: [85, 90, 80, 75, 88],
+                    backgroundColor: 'rgba(34, 197, 94, 0.2)',
+                    borderColor: 'rgba(34, 197, 94, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { color: 'white' },
+                        grid: { color: 'rgba(255,255,255,0.3)' },
+                        pointLabels: { color: 'white', font: { size: 12 } }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: 'white' } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
